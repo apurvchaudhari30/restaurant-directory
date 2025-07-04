@@ -1,0 +1,22 @@
+<form [formGroup]="loginForm" (ngSubmit)="logIn()"> 
+  <div class="card align-items-center">
+     <b><i>Aaple Restaurent</i></b>
+
+</div>
+      <div class="card1">
+        <div>
+        <label><b>Email</b></label><br>
+        <input type="email" formControlName="email" placeholder="Enter Email" required>
+        </div>
+          <div>
+          <label><b>Password</b></label><br>
+          <input type="Password" formControlName="password" placeholder="Enter Password" required>
+          </div>
+          
+            <button type="submit" class="btn" >Login</button>
+            <div>
+              <i>Create Account? <a style="color: blue; cursor: pointer;" (click)="signupPage()">Sign-Up</a></i>
+            </div>
+     </div>
+</form>
+   

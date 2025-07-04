@@ -1,0 +1,39 @@
+/* .style{
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.style2{
+    text-align: center  ;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: brown;
+    color: beige;
+    padding-top: 3%;
+    padding-bottom: 3%;
+} */
+
+
+.card{
+    width:300px;
+    height: 200px;
+    margin: 10px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.overlay{
+    background-color: rgba(0, 0, 0, 5);
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

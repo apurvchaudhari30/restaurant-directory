@@ -1,0 +1,144 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card1">
+        <div class="text-center">
+          <h1>Sign Up</h1>
+          <h5>You can Sign Up here!</h5>
+        </div>
+        <div class="card2">
+          <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+            <!-- Name -->
+            <div class="mb-3">
+              <label class="form-label">Name</label><br />
+              <input
+                formControlName="name"
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Name"
+              />
+              <div
+                *ngIf="
+                  signupForm.get('name')?.invalid &&
+                  signupForm.get('name')?.touched
+                "
+                style="color: red"
+              >
+                Name is required
+              </div>
+     <span *ngIf="signupForm.get('name')?.errors?.['pattern']" style="color: red">
+  Invalid name
+</span>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label class="form-label">Email address</label><br />
+              <input
+                formControlName="email"
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                placeholder="Email address"
+              />
+              <div
+                *ngIf="
+                  signupForm.get('email')?.invalid &&
+                  signupForm.get('email')?.touched
+                "
+              >
+                <span
+                  *ngIf="signupForm.get('email')?.errors?.['required']"
+                  style="color: red"
+                  >Email is required
+                </span>
+                <span
+                  *ngIf="signupForm.get('email')?.errors?.['email']"
+                  style="color: red"
+                  >Invalid email format
+                </span>
+              </div>
+
+              <!-- Mobile -->
+              <div class="mb-3">
+                <label class="form-label">Phone Number</label><br />
+                <input
+                  formControlName="mobile"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  placeholder="Number"
+                />
+
+                <div
+                  *ngIf="
+                    signupForm.get('mobile')?.invalid &&
+                    signupForm.get('mobile')?.touched
+                  "
+                >
+                  <span
+                    *ngIf="signupForm.get('mobile')?.errors?.['required']"
+                    style="color: red"
+                    >Mobile number is required
+                  </span>
+                  <span
+                    *ngIf="signupForm.get('mobile')?.errors?.['pattern']"
+                    style="color: red"
+                    >Invalid number
+                  </span>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                  <label class="form-label">Password</label><br />
+                  <input
+                    formControlName="password"
+                    type="password"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="Password"
+                  />
+                  <div
+                    *ngIf="
+                      signupForm.get('password')?.invalid &&
+                      signupForm.get('password')?.touched
+                    "
+                  >
+                    <span
+                      *ngIf="signupForm.get('password')?.errors?.['required']"
+                      style="color: red"
+                      >Password is required
+                    </span>
+                    <span *ngIf="signupForm.get('password')?.errors?.['minlength']">
+  Password must be at least 8 characters
+</span>
+                    <span
+                      *ngIf="signupForm.get('password')?.errors?.['pattern']"
+                      style="color: red"
+                      >Password must contain at least one
+                      UPPERCASE,lowercase,number and special character
+                    </span>
+
+                    <!-- Button                   -->
+                  </div>
+                  <div class="d-flex justify-content-center lign-items-center">
+                    <button
+                      type="submit"
+                      class="btn"
+                      [disabled]="signupForm.invalid"
+                    >
+                      sign up
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <a routerLink="/login" style="margin-left: 20%"
+            >Already User? Click to Login</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

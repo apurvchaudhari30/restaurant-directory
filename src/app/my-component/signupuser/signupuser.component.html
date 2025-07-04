@@ -1,0 +1,9 @@
+<div
+  class="card"
+  *ngIf="restaurant"
+  [style.background-image]="'url(' + restaurant.imageUrl + ')'"
+>
+  <h2>{{ restaurant.name }}</h2>
+  <h2>{{ restaurant.address }}</h2>
+  <h2>{{ restaurant.mobile }}</h2>
+</div>

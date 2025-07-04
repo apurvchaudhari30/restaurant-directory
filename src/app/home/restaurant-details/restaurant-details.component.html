@@ -1,0 +1,69 @@
+<div class="blur-bg-wrapper">
+  <div class="blur-bg"></div>
+
+  <div class="content-overlay">
+    <h1>{{ selectedRestaurant.name }}</h1>
+    <h6><strong>Email:</strong> {{ selectedRestaurant.email }}</h6>
+    <h6><strong>Mobile:</strong> {{ selectedRestaurant.mobile }}</h6>
+    <h6><strong>Address:</strong> {{ selectedRestaurant.address }}</h6>
+    <h6><strong>Services:</strong> {{ selectedRestaurant.services }}</h6>
+
+    <!-- ☰ Menu Button -->
+    <button
+      class="btn btn-primary mt-3 me-2"
+      data-bs-toggle="modal"
+      data-bs-target="#menuModal"
+    >
+      ☰ View Menu
+    </button>
+    <button
+      class="btn btn-secondary mt-3"
+      (click)="goBack()"
+    >
+      Back
+    </button>
+  </div>
+</div>
+
+<!-- 🧾 Restaurant Menu Modal -->
+<div
+  class="modal fade"
+  id="menuModal"
+  tabindex="-1"
+  aria-labelledby="menuModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="menuModalLabel">
+          {{ selectedRestaurant.name }} – Menu
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      
+      <div class="modal-body">
+        <ul *ngIf="selectedRestaurant.menus?.length; else noMenu">
+          <li
+            class="list-group-item"
+            *ngFor="let item of selectedRestaurant.menus"
+          >
+         
+
+           🍽️<span class="name">{{ item.name }}</span> 
+           <span class="price">₹{{ item.price }}</span> 
+          </li>
+        </ul>
+        <ng-template #noMenu>
+          <p>No menu items available for this restaurant.</p>
+        </ng-template>
+      </div>
+      
+    </div>
+  </div>
+</div>
